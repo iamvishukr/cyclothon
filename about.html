@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Cyclothon</title>
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icon Font Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #f8f9fa;
+      }
+
+      nav {
+        background-color: #202135;
+      }
+
+      .section-heading {
+        color: #15b9d9;
+        font-weight: 600;
+        font-size: 60px;
+        text-align: center;
+      }
+
+      .about-header {
+        width: 100%;
+        height: 100vh;
+        background-image: url("path_to_your_image.jpg"); /* Add your image path here */
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+      }
+
+      .about-header h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      }
+
+      .about-content {
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-top: -50px;
+        z-index: 10;
+      }
+
+      .about-content h3 {
+        font-size: 2rem;
+        color: #15b9d9;
+      }
+
+      .about-content p {
+        font-size: 1.1rem;
+        color: #495057;
+      }
+
+      .get-involved {
+        color: rgb(255, 255, 0);
+        padding: 50px 0;
+      }
+
+      .get-involved .section-heading {
+        font-size: 40px;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .get-involved-card {
+        background-color: #eaeaea;
+        color: rgb(74, 73, 73);
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .get-involved-card h4 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .get-involved-card p {
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: rgb(57, 53, 53);
+      }
+
+      .get-involved-card a {
+        color: white;
+        text-decoration: underline;
+      }
+
+      .get-involved-card a:hover {
+        color: #f39c12;
+      }
+
+      /* Improved Button Styles */
+      button {
+        background-color: #953515;
+        color: white;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #3d8eaf;
+      }
+
+      button:focus {
+        outline: none;
+      }
+
+      .footer {
+        background-color: rgba(5, 6, 6, 1);
+        color: #fff;
+        text-align: start;
+        padding: 20px 0;
+      }
+
+      .footer a {
+        color: #fff !important;
+      }
+
+      .footer a:hover {
+        color: #a6a6a6;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 767px) {
+        .get-involved .row {
+          flex-direction: column;
+        }
+
+        .get-involved-card {
+          margin-bottom: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header Section -->
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark px-5 d-none d-lg-block">
+      <div class="row gx-0 align-items-center" style="height: 45px">
+        <div class="col-lg-8 text-center text-lg-start mb-lg-0">
+          <div class="d-flex flex-wrap">
+            <a href="#" class="text-light me-4"
+              ><i class="fas fa-phone-alt text-primary me-2"></i>
+              +91 9430360020
+            </a>
+            <a href="#" class="text-light me-0"
+              ><i class="fas fa-envelope text-primary me-2"></i
+              >consult@i3foundation.org</a
+            >
+          </div>
+        </div>
+        <div class="col-lg-4 text-center text-lg-end">
+          <div class="d-flex align-items-center justify-content-end">
+            <a
+              href="https://www.facebook.com/i3foundation.org/"
+              class="btn btn-light btn-square border rounded-circle nav-fill me-3"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://x.com/I3Foundation"
+              class="btn btn-light btn-square border rounded-circle nav-fill me-3"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fi3foundation2022%2F%3Flocale%3Den&is_from_rle"
+              class="btn btn-light btn-square border rounded-circle nav-fill me-3"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.youtube.com/channel/UCOX-NViqrLNo_HyeyyoOk0A"
+              class="btn btn-light btn-square border rounded-circle nav-fill me-3"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Topbar End -->
+    <div class="container-fluid position-relative p-0">
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-2 py-lg-3"
+      >
+        <a href="index.html" class="navbar-brand p-0"></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+        >
+          <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ms-auto py-0">
+            <a href="index.html" class="nav-item nav-link">Home</a>
+            <a href="about.html" class="nav-item nav-link">About</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- About Us Section -->
+    <div class="container about-section">
+      <h5 class="section-heading">About Us</h5>
+
+      <!-- About Content Section -->
+      <div class="about-content mt-4">
+        <img src="./img/about-background.JPG" alt="" />
+
+        <p class="mt-2">
+          <strong>
+            Welcome to the official website of Cyclothon, organized by the
+            esteemed i3 Foundation! A thrilling blend of adventure, fitness, and
+            community spirit, Cyclothon is not just an event; it's a movement to
+            inspire health, environmental awareness, and unity. Join us on this
+            journey as we pedal towards a healthier and greener
+            tomorrow.</strong
+          >
+        </p>
+        <p>
+          Cyclothon is held every month on the 2nd Sunday, making it a recurring
+          celebration of fitness and sustainability. Mark your calendars and be
+          part of this ongoing movement!
+        </p>
+
+        <h3>About i3 Foundation</h3>
+        <p>
+          At the heart of Cyclothon lies the i3 Foundation, an organization
+          dedicated to empowering communities, fostering sustainability, and
+          promoting health and fitness. With a legacy of impactful initiatives
+          and a commitment to creating positive change, i3 Foundation aims to
+          transform lives and inspire action through events like Everest Summit,
+          TEDxKanke, and Cyclothon.
+        </p>
+        <p>
+          Our mission is simple yet profound: to create a healthier world, one
+          step—or pedal—at a time. We believe in the power of collective action,
+          and Cyclothon embodies this spirit by uniting people from all walks of
+          life to ride for a cause.
+        </p>
+
+        <p>
+          Cyclothon will continue to be held every month on the 2nd Sunday,
+          ensuring a consistent opportunity to engage with the community and
+          promote our shared goals.
+        </p>
+
+        <!-- Why Participate Section -->
+        <div class="get-involved">
+          <h3 class="section-heading">Why Participate</h3>
+
+          <div class="row">
+            <div class="col-md-4 mb-4">
+              <div class="get-involved-card">
+                <h4>Health and Fitness</h4>
+                <p>
+                  Embrace an active lifestyle by cycling through scenic routes
+                  designed for all levels of fitness.
+                </p>
+                <i class="fa-solid fa-heart"></i>
+              </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+              <div class="get-involved-card">
+                <h4>Environmental Impact</h4>
+                <p>
+                  Reduce your carbon footprint and advocate for eco-friendly
+                  transportation.
+                </p>
+              </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+              <div class="get-involved-card">
+                <h4>Community Building</h4>
+                <p>
+                  Be part of a vibrant community that values health,
+                  sustainability, and mutual support.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Get Involved Section -->
+        <div class="get-involved">
+          <h3 class="section-heading">Get Involved</h3>
+
+          <div class="row">
+            <!-- Register Card -->
+            <div class="col-md-4 mb-4">
+              <div class="get-involved-card">
+                <h4>Register Now</h4>
+                <p>
+                  Secure your spot for the event and be part of the excitement.
+                </p>
+                <a href="https://i3foundation.org/payment.php?event=4"
+                  ><button>Register Now</button></a
+                >
+              </div>
+            </div>
+
+            <!-- Sponsor Card -->
+            <div class="col-md-4 mb-4">
+              <div class="get-involved-card">
+                <h4>Sponsor the Event</h4>
+                <p>
+                  Collaborate with us to make Cyclothon a grand success while
+                  promoting your brand.
+                </p>
+                <button>Contact Us</button>
+              </div>
+            </div>
+
+            <!-- Volunteer Card -->
+            <div class="col-md-4 mb-4">
+              <div class="get-involved-card">
+                <h4>Volunteer</h4>
+                <p>
+                  Join our team of passionate volunteers and contribute to the
+                  smooth execution of the event.
+                </p>
+                <button>Volunteer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Start -->
+    <div
+      class="container-fluid footer py-5 mt-4 wow fadeIn"
+      data-wow-delay="0.2s"
+    >
+      <div class="container py-5">
+        <div class="row g-5">
+          <div class="col-md-6 col-lg-6 col-xl-3">
+            <div class="col-md-6 mb-4">
+              <h5 class="text-white mb-4">I3 Foundation</h5>
+              <p>
+                I3 Foundation is dedicated to creating impactful change through
+                innovation, inspiration, and inclusion.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6 col-xl-3">
+            <div class="footer-item d-flex flex-column">
+              <h4 class="mb-4 text-white">Quick Links</h4>
+              <a href=""><i class="fas fa-angle-right me-2"></i> About Us</a>
+              <!-- <a href=""
+                ><i class="fas fa-angle-right me-2"></i> Privacy Policy</a
+              > -->
+              <!-- <p><i class="fas fa-angle-right me-2"></i> Terms & Conditions</p> -->
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-6 col-xl-3"></div>
+          <div class="col-md-6 col-lg-6 col-xl-3">
+            <div class="footer-item d-flex flex-column">
+              <h4 class="mb-4 text-white">Contact Info</h4>
+              <div class="contact-us-section">
+                <ul class="list-unstyled">
+                  <li class="mb-3">
+                    <i class="fa fa-map-marker-alt me-2"></i>
+                    House No- H I / 218, Harmu Housing Colony Harmu, Ranchi,
+                    Jharkhand- 834002
+                  </li>
+                  <li class="mb-3">
+                    <i class="fas fa-envelope me-2"></i>
+                    <a href="mailto:consult@i3foundation.org"
+                      >consult@i3foundation.org</a
+                    >
+                  </li>
+                  <li class="mb-3">
+                    <i class="fas fa-phone me-2"></i>
+                    <a href="tel:9430360020">+91 9430360020</a>
+                    <br />
+                    <a class="mx-4" href="tel:9430360020">+91 9430360020</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
