@@ -38,6 +38,14 @@
         .cyclothon-register{
             text-align: center;
         }
+    /* Apply Open Sans font to carousel text */
+    .carousel-caption h1,
+    .carousel-caption p {
+      font-family: 'Open Sans', sans-serif;
+    }
+    .join{
+      color: #4FC5DD;
+    }
     </style>
   </head>
 
@@ -58,7 +66,7 @@
     <!-- Spinner End -->
 
     <!-- Topbar Start -->
-    <div class="container-fluid bg-dark px-5 d-none d-lg-block">
+    <!-- <div class="container-fluid bg-dark px-5 d-none d-lg-block">
       <div class="row gx-0 align-items-center" style="height: 45px">
         <div class="col-lg-8 text-center text-lg-start mb-lg-0">
           <div class="d-flex flex-wrap">
@@ -98,7 +106,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Topbar End -->
 
     <!-- Navbar & Hero Start -->
@@ -280,18 +288,8 @@
           <!-- Right Column with Registration Form -->
           <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
             <div class="appointment-form rounded-lg">
-              <h1 class="display-5 mb-4 text-center">Join the Cyclothon</h1>
+              <h1 class="display-5 mb-4 text-center join">Join the Cyclothon</h1>
 
-              <div class="col-12 text-center mt-4">
-                <a href="https://i3foundation.org/payment.php?event=4">
-                  <button
-                    type="button"
-                    class="btn bg-danger text-white py-3 px-5 shadow-lg border-0 rounded-lg"
-                  >
-                    Register Now
-                  </button>
-                </a>
-              </div>
 
               <!-- Image below the button -->
               <div class="col-12 mt-4">
@@ -307,6 +305,16 @@
                   class="img-fluid rounded"
                   alt="Image below register button"
                 />
+              </div>
+              <div class="col-12 text-center mt-4">
+                <a href="https://i3foundation.org/payment.php?event=4">
+                  <button
+                    type="button"
+                    class="btn bg-danger text-white py-3 px-5 shadow-lg border-0 rounded-lg"
+                  >
+                    Register Now
+                  </button>
+                </a>
               </div>
             </div>
           </div>
@@ -339,7 +347,7 @@
                       <i class="fas fa-calendar-day text-secondary me-2"></i>
                       Cyclothon - 12th January 2025
                     </span>
-                    <a href="previous-event-page-1.html">
+                    <a href="previousEvents.html">
                       <button class="btn btn-secondary text-white">12th January</button>
                     </a>
                   </li>
@@ -661,6 +669,7 @@
               >
             </div>
           </div>
+          
           <div class="col-md-6 col-lg-6 col-xl-3"></div>
           <div class="col-md-6 col-lg-6 col-xl-3">
             <div class="footer-item d-flex flex-column">
@@ -681,7 +690,12 @@
                     <br>
                     <a class="mx-4" href="tel:9430360020">+91 9430360020</a>
                   </li>
-
+                    <div class="d-flex align-items-start">
+                        <a href="https://www.facebook.com/i3foundation.org/" class="btn btn-light btn-square border rounded-circle nav-fill me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/I3Foundation" class="btn btn-light btn-square border rounded-circle nav-fill me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fi3foundation2022%2F%3Flocale%3Den&is_from_rle" class="btn btn-light btn-square border rounded-circle nav-fill me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/ideate-inspire-ignite-foundation?originalSubdomain=in" class="btn btn-light btn-square border rounded-circle nav-fill me-0"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
                 </ul>
               </div>
               
