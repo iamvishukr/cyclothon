@@ -1,192 +1,612 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Previous Event - Cyclothon</title>
+  <head>
+    <meta charset="utf-8" />
+    <title>Previous Events - Cyclothon</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Lightbox CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.12.0/dist/index.min.css" rel="stylesheet" />
-    <!-- Custom CSS -->
-    <link href="style.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon Font Stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
     <style>
-        nav {
-            background-color: #202135;
-            color: white !important;
-            padding: 20px;
+        .year-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
         }
-        .footer {
-            background-color: rgba(5, 6, 6, 1);
-            color: #fff;
-            text-align: start;
-            padding: 20px 0;
+
+        .year-tab {
+            padding: 0.5rem 2rem;
+            border: 2px solid #0072bc;
+            border-radius: 2rem;
+            background: none;
+            color: #0072bc;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
-        .footer a {
-            color: #fff !important;
+
+        .year-tab.active {
+            background: #0072bc;
+            color: white;
         }
-        .footer a:hover {
-            color: #a6a6a6;
+
+        .nav-tabs {
+            display: flex;
+            justify-content: stretch;
+            margin: 2rem 0;
+            background: #000;
         }
-        .card-title {
-            color: #15b9d9;
+
+        .nav-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
         }
+
+        .nav-tab:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: flex-end;
+            margin: 1rem 0;
+        }
+
+        .search-button {
+            padding: 0.5rem 1.5rem;
+            background: #0072bc;
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+        }
+
+        .month-section {
+            margin: 2rem 0;
+        }
+
+        .month-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Show 4 images per row */
+            gap: 0.5rem;
+            padding: 0.5rem;
+        }
+
         .gallery-item {
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.3s ease;
         }
-        .gallery-item:hover {
+
+        .gallery-item:hover img {
             transform: scale(1.05);
         }
-    </style>
-</head>
 
-<body>
+        /* Enhanced Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            touch-action: none;
+        }
+
+        .lightbox.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            width: 90%;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            pointer-events: none;
+        }
+
+        .lightbox-button {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            pointer-events: auto;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .lightbox-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 1200px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .navbar-light{
+            position: relative;
+        }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header Section -->
+
     <!-- Navbar Start -->
     <div class="container-fluid position-relative p-0">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0">
-            <a href="index.html" class="navbar-brand p-0"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto py-0">
-                    <a href="index.html" class="nav-item nav-link">Home</a>
-                    <a href="about.html" class="nav-item nav-link active">About</a>
-                </div>
-            </div>
-        </nav>
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0"
+      >
+        <a href="index.html" class="navbar-brand p-0">
+          <img src="img/logo.webp" alt="Logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+        >
+          <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ms-auto py-0">
+            <a href="index.html" class="nav-item nav-link">Home</a>
+            <a href="about.html" class="nav-item nav-link">About</a>
+          </div>
+        </div>
+      </nav>
     </div>
-    <!-- Navbar End -->
 
     <!-- Event Details Section -->
-    <div class="container my-5">
-        <h2 class="text-center mb-4">Previous Event Highlights</h2>
-        
-        <div class="row">
-            <div class="col-lg-6 mb-4">
-                <div class="card flex">
-                    <!-- Bootstrap Carousel Start -->
-                    <div id="winnerCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="./img/winner-1.jpg" class="d-block w-100" alt="Winner 1">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="./img/winner-2.jpg" class="d-block w-100" alt="Winner 2">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="./img/winner-3.jpg" class="d-block w-100" alt="Winner 3">
-                            </div>
-                        </div>
-                        <!-- Carousel Controls -->
-                        <button class="carousel-control-prev" type="button" data-bs-target="#winnerCarousel" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#winnerCarousel" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
+    <div class="container">
+        <div class="year-tabs">
+            <!-- <button class="year-tab active" data-year="2024">2024</button> -->
+            <button class="year-tab" data-year="2025">2025</button>
+        </div>
+
+        <div class="nav-tabs">
+            <a href="#" class="nav-tab">Pedal Up Rides</a>
+            <a href="#" class="nav-tab">Launch Video</a>
+            <a href="#" class="nav-tab">Event Pictures</a>
+        </div>
+
+        <!-- <div class="search-container">
+            <button class="search-button">
+                <i class="fas fa-search"></i> Search
+            </button>
+        </div> -->
+
+        <div class="gallery-container" id="gallery-2024">
+            <div class="month-section" data-month="September">
+                <h3 class="month-title">September 2024</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="/img/cardImage3.jpg" alt="Event Image 1" loading="lazy">
                     </div>
-                    <!-- Bootstrap Carousel End -->
-                    <div class="card-body">
-                        <h5 class="card-title">Winners</h5>
-                        <p class="card-text">Congratulations to our winners who showcased incredible performance and dedication during the event. Their hard work and perseverance shone through!</p>
+                    <!-- <div class="gallery-item">
+                        <img src="/img/cardImage4.jpg" alt="Event Image 2" loading="lazy">
+                    </div> -->
+                    <div class="gallery-item">
+                        <img src="/img/cardImage5.jpg" alt="Event Image 3" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/img/cardImage6.jpg" alt="Event Image 4" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/img/cardImage7.jpg" alt="Event Image 5" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/img/cardImage8.jpg" alt="Event Image 6" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/placeholder.svg?height=300&width=400" alt="Event Image 7" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/placeholder.svg?height=300&width=400" alt="Event Image 8" loading="lazy">
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-6 mb-4">
-                <div class="card">
-                    <img src="./img/special-mention.jpg" class="card-img-top" alt="Special Mention">
-                    <div class="card-body">
-                        <h5 class="card-title">Special Mentions</h5>
-                        <p class="card-text">A special shoutout to participants who went above and beyond, demonstrating exceptional spirit and teamwork throughout the event.</p>
+            <div class="month-section" data-month="August">
+                <h3 class="month-title">August 2024</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="/img/cardImage5.jpg" alt="Event Image 3" loading="lazy">
                     </div>
+                    <div class="gallery-item">
+                        <img src="/img/cardImage6.jpg" alt="Event Image 4" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/img/cardImage7.jpg" alt="Event Image 5" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/img/cardImage8.jpg" alt="Event Image 6" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/placeholder.svg?height=300&width=400" alt="Event Image 7" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/placeholder.svg?height=300&width=400" alt="Event Image 8" loading="lazy">
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
 
-        <!-- <h3 class="text-center mb-4">Event Gallery</h3>
-        <div class="row" id="gallery">
-            <div class="col-md-4 mb-4 gallery-item">
-                <a href="./img/blog-1.jpg" data-bs-lightbox="gallery" data-bs-title="Event Photo 1">
-                    <img src="./img/blog-1.jpg" class="card-img-top" alt="Event Photo 1">
-                </a>
-            </div>
-            <div class="col-md-4 mb-4 gallery-item">
-                <a href="./img/blog-2.jpg" data-bs-lightbox="gallery" data-bs-title="Event Photo 2">
-                    <img src="./img/blog-2.jpg" class="card-img-top" alt="Event Photo 2">
-                </a>
-            </div>
-            <div class="col-md-4 mb-4 gallery-item">
-                <a href="./img/blog-3.jpg" data-bs-lightbox="gallery" data-bs-title="Event Photo 3">
-                    <img src="./img/blog-3.jpg" class="card-img-top" alt="Event Photo 3">
-                </a>
-            </div>
-            <!-- Repeat for other images -->
-        <!-- </div> --> 
+        <div class="gallery-container" id="gallery-2025" style="display: none;">
+            <!-- Similar structure for 2025 -->
+        </div>
     </div>
     <!-- Event Details Section End -->
 
-    <!-- Footer Start -->
-    <div class="container-fluid footer py-5 mt-4 wow fadeIn" data-wow-delay="0.2s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="col-md-6 mb-4">
-                        <h5 class="text-white mb-4">I3 Foundation</h5>
-                        <p>I3 Foundation is dedicated to creating impactful change through innovation, inspiration, and inclusion.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="footer-item d-flex flex-column">
-                        <h4 class="mb-4 text-white">Quick Links</h4>
-                        <a href=""><i class="fas fa-angle-right me-2"></i> About Us</a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3"></div>
-                <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="footer-item d-flex flex-column">
-                        <h4 class="mb-4 text-white">Contact Info</h4>
-                        <div class="contact-us-section">
-                            <ul class="list-unstyled">
-                                <li class="mb-3">
-                                    <i class="fa fa-map-marker-alt me-2"></i> House No- H I / 218, Harmu Housing Colony Harmu, Ranchi, Jharkhand- 834002
-                                </li>
-                                <li class="mb-3">
-                                    <i class="fas fa-envelope me-2"></i><a href="mailto:consult@i3foundation.org">consult@i3foundation.org</a>
-                                </li>
-                                <li class="mb-3">
-                                    <i class="fas fa-phone me-2"></i><a href="tel:9430360020">+91 9430360020</a><br />
-                                    <a class="mx-4" href="tel:9430360020">+91 9430360020</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+    <div class="lightbox">
+        <div class="lightbox-content">
+            <img src="/placeholder.svg" alt="Lightbox Image" class="lightbox-image">
+            <div class="lightbox-nav">
+                <button class="lightbox-button prev">&larr;</button>
+                <button class="lightbox-button next">&rarr;</button>
             </div>
+            <button class="lightbox-close">&times;</button>
+            <div class="lightbox-counter">1 / 12</div>
         </div>
+    </div>
+
+    <!-- Footer Start -->
+    <div
+      class="container-fluid footer py-5 mt-4 wow fadeIn"
+      data-wow-delay="0.2s"
+    >
+      <div class="container py-5">
+        <div class="row g-5">
+          <!-- Logo Column -->
+          <div class="col-md-6 col-lg-3">
+            <img src="./img/logo.webp" alt="Logo" height="100px" />
+          </div>
+
+          <!-- About Column -->
+          <div class="col-md-6 col-lg-3">
+            <h5 class="text-white mb-4">I3 Foundation</h5>
+            <p>
+              I3 Foundation is dedicated to creating impactful change through
+              innovation, inspiration, and inclusion.
+            </p>
+          </div>
+
+          <!-- Quick Links Column -->
+          <div class="col-md-6 col-lg-3">
+            <h5 class="text-white mb-4">Quick Links</h5>
+            <div class="footer-item d-flex flex-column">
+              <a href="#"><i class="fas fa-angle-right me-2"></i> About Us</a>
+              <a href="#"><i class="fas fa-angle-right me-2"></i> Privacy Policy</a>
+              <a href="#"><i class="fas fa-angle-right me-2"></i> Terms & Conditions</a>
+            </div>
+          </div>
+
+          <!-- Contact Info Column -->
+          <div class="col-md-6 col-lg-3">
+            <h5 class="text-white mb-4">Contact Info</h5>
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <i class="fa fa-map-marker-alt me-2"></i>
+                House No- H I / 218, Harmu Housing Colony Harmu, Ranchi,
+                Jharkhand- 834002
+              </li>
+              <li class="mb-3">
+                <i class="fas fa-envelope me-2"></i>
+                <a href="mailto:consult@i3foundation.org"
+                  >consult@i3foundation.org</a
+                >
+              </li>
+              <li class="mb-3">
+                <i class="fas fa-phone me-2"></i>
+                <a href="tel:9430360020">+91 9430360020</a>
+              </li>
+            </ul>
+            <div class="d-flex">
+              <a
+                href="https://www.facebook.com/i3foundation.org/"
+                class="btn btn-light btn-square border rounded-circle me-2"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://x.com/I3Foundation"
+                class="btn btn-light btn-square border rounded-circle me-2"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fi3foundation2022%2F%3Flocale%3Den&is_from_rle"
+                class="btn btn-light btn-square border rounded-circle me-2"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/company/ideate-inspire-ignite-foundation?originalSubdomain=in"
+                class="btn btn-light btn-square border rounded-circle"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Footer End -->
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Lightbox JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.12.0/dist/index.min.js"></script>
-    <!-- Masonry JS -->
-    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"></script>
+    <div class="container-fluid copyright py-4">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-md-0">
+            <span class="text-white"
+              ><a href="https://i3foundation.org/index.html"
+                ><i class="fas fa-copyright text-light me-2"></i>i3foundation</a
+              >, All right reserved.</span
+            >
+          </div>
+          <div class="col-md-6 text-center text-md-end text-white">
+            Designed By
+            <a class="border-bottom" href="https://digicrow.in">DigiCrow</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-lg-square back-to-top"
+      ><i class="fa fa-arrow-up"></i
+    ></a>
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+
     <script>
-        var grid = document.querySelector('#gallery');
-        var masonry = new Masonry(grid, {
-            itemSelector: '.gallery-item',
-            columnWidth: '.gallery-item',
-            percentPosition: true
+        // Tab switching
+        document.querySelectorAll('.year-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                document.querySelectorAll('.year-tab').forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Hide all galleries
+                document.querySelectorAll('.gallery-container').forEach(gallery => {
+                    gallery.style.display = 'none';
+                });
+                // Show selected gallery
+                document.getElementById(`gallery-${tab.dataset.year}`).style.display = 'block';
+            });
         });
+
+        // Enhanced Lightbox functionality with touch support
+        const lightbox = document.querySelector('.lightbox');
+        const lightboxImage = document.querySelector('.lightbox-image');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const lightboxCounter = document.querySelector('.lightbox-counter');
+        let currentImageIndex = 0;
+        let galleryImages = [];
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        // Initialize gallery images
+        function initGallery() {
+            galleryImages = Array.from(document.querySelectorAll('.gallery-item img'));
+            updateCounter();
+        }
+
+        // Update counter text
+        function updateCounter() {
+            lightboxCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+        }
+
+        // Show image in lightbox
+        function showImage(index) {
+            currentImageIndex = index;
+            lightboxImage.src = galleryImages[index].src;
+            updateCounter();
+        }
+
+        // Navigate to previous/next image
+        function navigate(direction) {
+            currentImageIndex = (currentImageIndex + direction + galleryImages.length) % galleryImages.length;
+            showImage(currentImageIndex);
+        }
+
+        // Touch events for swipe
+        lightbox.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        lightbox.addEventListener('touchmove', (e) => {
+            if (!touchStartX) return;
+            
+            touchEndX = e.touches[0].clientX;
+            const diff = touchStartX - touchEndX;
+            
+            // Add transform to give feedback about the swipe
+            lightboxImage.style.transform = `translateX(${-diff}px)`;
+        });
+
+        lightbox.addEventListener('touchend', () => {
+            if (!touchStartX || !touchEndX) return;
+            
+            const diff = touchStartX - touchEndX;
+            lightboxImage.style.transform = '';
+            
+            if (Math.abs(diff) > 50) {
+                // Swipe threshold reached
+                navigate(diff > 0 ? 1 : -1);
+            }
+            
+            touchStartX = 0;
+            touchEndX = 0;
+        });
+
+        // Click events
+        document.querySelectorAll('.gallery-item img').forEach((img, index) => {
+            img.addEventListener('click', () => {
+                initGallery();
+                showImage(index);
+                lightbox.classList.add('active');
+            });
+        });
+
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+
+        document.querySelector('.lightbox-button.prev').addEventListener('click', () => {
+            navigate(-1);
+        });
+
+        document.querySelector('.lightbox-button.next').addEventListener('click', () => {
+            navigate(1);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            
+            switch(e.key) {
+                case 'ArrowLeft':
+                    navigate(-1);
+                    break;
+                case 'ArrowRight':
+                    navigate(1);
+                    break;
+                case 'Escape':
+                    lightbox.classList.remove('active');
+                    break;
+            }
+        });
+
+        // Search functionality
+        // document.querySelector('.search-button').addEventListener('click', () => {
+        //     // Implement search functionality here
+        //     console.log('Search clicked');
+        // });
     </script>
-</body>
+  </body>
 </html>

@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us - Cyclothon</title>
+    <meta charset="utf-8" />
+    <title>Cyclothon 2025 by i3foundation</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+
     <!-- Icon Font Stylesheet -->
-    <!-- <link
+    <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    /> -->
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
       rel="stylesheet"
@@ -37,10 +41,10 @@
         line-height: 1.6; /* Improved readability */
       }
 
-      nav {
-        background-color: #202135;
-        color: white !important;
-        padding: 20px;
+      .navbar.navbar-expand-lg .navbar-toggler {
+        padding: 10px 20px !important;
+        border: 1px solid var(--bs-primary) !important;
+        color: var(--bs-primary) !important;
       }
 
       .footer-icon {
@@ -160,7 +164,7 @@
       }
 
       button {
-        background-color: #DC3545;
+        background-color: #dc3545;
         color: white;
         padding: 12px 30px;
         border-radius: 25px;
@@ -183,9 +187,6 @@
         color: #fff;
         text-align: start;
         padding: 20px 0;
-      }
-
-      .footer a {
       }
 
       .footer a:hover {
@@ -217,25 +218,24 @@
 
     <!-- Navbar Start -->
     <div class="container-fluid position-relative p-0">
-      <nav class="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0">
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0"
+      >
         <a href="index.html" class="navbar-brand p-0">
-          <h1 class="m-0">Cyclothon</h1>
+          <img src="img/logo.webp" alt="Logo" />
         </a>
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarCollapse"
-          aria-controls="navbarCollapse"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="fa fa-bars"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <div class="navbar-nav ms-auto py-0">
             <a href="index.html" class="nav-item nav-link">Home</a>
-            <a href="about.html" class="nav-item nav-link active">About</a>
+            <a href="about.html" class="nav-item nav-link">About</a>
           </div>
         </div>
       </nav>
@@ -400,76 +400,118 @@
     >
       <div class="container py-5">
         <div class="row g-5">
-          <div class="col-md-6 col-lg-6 col-xl-3">
-            <div class="col-md-6 mb-4">
-              <h5 class="text-white mb-4">I3 Foundation</h5>
-              <p>
-                I3 Foundation is dedicated to creating impactful change through
-                innovation, inspiration, and inclusion.
-              </p>
+          <!-- Logo Column -->
+          <div class="col-md-6 col-lg-3">
+            <img src="./img/logo.webp" alt="Logo" height="100px" />
+          </div>
+
+          <!-- About Column -->
+          <div class="col-md-6 col-lg-3">
+            <h5 class="text-white mb-4">I3 Foundation</h5>
+            <p>
+              I3 Foundation is dedicated to creating impactful change through
+              innovation, inspiration, and inclusion.
+            </p>
+          </div>
+
+          <!-- Quick Links Column -->
+          <div class="col-md-6 col-lg-3">
+            <h5 class="text-white mb-4">Quick Links</h5>
+            <div class="footer-item d-flex flex-column">
+              <a href="#"><i class="fas fa-angle-right me-2"></i> About Us</a>
+              <a href="#"
+                ><i class="fas fa-angle-right me-2"></i> Privacy Policy</a
+              >
+              <a href="#"
+                ><i class="fas fa-angle-right me-2"></i> Terms & Conditions</a
+              >
             </div>
           </div>
-          <div class="col-md-6 col-lg-6 col-xl-3">
-            <div class="footer-item d-flex flex-column">
-              <h4 class="mb-4 text-white">Quick Links</h4>
-              <a href=""><i class="fas fa-angle-right me-2"></i> About Us</a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-6 col-xl-3"></div>
-          <div class="col-md-6 col-lg-6 col-xl-3">
-            <div class="footer-item d-flex flex-column">
-              <h4 class="mb-4 text-white">Contact Info</h4>
-              <div class="contact-us-section">
-                <ul class="list-unstyled">
-                  <li class="mb-3">
-                    <i class="fa fa-map-marker-alt me-2"></i>
-                    House No- H I / 218, Harmu Housing Colony Harmu, Ranchi,
-                    Jharkhand- 834002
-                  </li>
-                  <li class="mb-3">
-                    <i class="fas fa-envelope me-2"></i>
-                    <a href="mailto:consult@i3foundation.org">
-                      consult@i3foundation.org
-                    </a>
-                  </li>
-                  <li class="mb-3">
-                    <i class="fas fa-phone me-2"></i>
-                    <a href="tel:9430360020">+91 9430360020</a>
-                    <br />
-                    <a class="mx-4" href="tel:9430360020">+91 9430360020</a>
-                  </li>
-                  <div class="d-flex align-items-start footer-icon">
-                    <a
-                      href="https://www.facebook.com/i3foundation.org/"
-                      class="btn btn-light btn-square border rounded-circle nav-fill me-3"
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-                    <a
-                      href="https://x.com/I3Foundation"
-                      class="btn btn-light btn-square border rounded-circle nav-fill me-3"
-                      ><i class="fab fa-twitter"></i
-                    ></a>
-                    <a
-                      href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fi3foundation2022%2F%3Flocale%3Den&is_from_rle"
-                      class="btn btn-light btn-square border rounded-circle nav-fill me-3"
-                      ><i class="fab fa-instagram"></i
-                    ></a>
-                    <a
-                      href="https://www.linkedin.com/company/ideate-inspire-ignite-foundation?originalSubdomain=in"
-                      class="btn btn-light btn-square border rounded-circle nav-fill me-0"
-                      ><i class="fab fa-linkedin-in"></i
-                    ></a>
-                  </div>
-                </ul>
-              </div>
+
+          <!-- Contact Info Column -->
+          <div class="col-md-6 col-lg-3">
+            <h5 class="text-white mb-4">Contact Info</h5>
+            <ul class="list-unstyled">
+              <li class="mb-3">
+                <i class="fa fa-map-marker-alt me-2"></i>
+                House No- H I / 218, Harmu Housing Colony Harmu, Ranchi,
+                Jharkhand- 834002
+              </li>
+              <li class="mb-3">
+                <i class="fas fa-envelope me-2"></i>
+                <a href="mailto:consult@i3foundation.org"
+                  >consult@i3foundation.org</a
+                >
+              </li>
+              <li class="mb-3">
+                <i class="fas fa-phone me-2"></i>
+                <a href="tel:9430360020">+91 9430360020</a>
+              </li>
+            </ul>
+            <div class="d-flex">
+              <a
+                href="https://www.facebook.com/i3foundation.org/"
+                class="btn btn-light btn-square border rounded-circle me-2"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://x.com/I3Foundation"
+                class="btn btn-light btn-square border rounded-circle me-2"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fi3foundation2022%2F%3Flocale%3Den&is_from_rle"
+                class="btn btn-light btn-square border rounded-circle me-2"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/company/ideate-inspire-ignite-foundation?originalSubdomain=in"
+                class="btn btn-light btn-square border rounded-circle"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
             </div>
           </div>
         </div>
       </div>
     </div>
+
     <!-- Footer End -->
 
-    <!-- Bootstrap JS -->
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <div class="container-fluid copyright py-4">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-md-0">
+            <span class="text-white"
+              ><a href="https://i3foundation.org/index.html"
+                ><i class="fas fa-copyright text-light me-2"></i>i3foundation</a
+              >, All right reserved.</span
+            >
+          </div>
+          <div class="col-md-6 text-center text-md-end text-white">
+            <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+            <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+            <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+            Designed By
+            <a class="border-bottom" href="https://digicrow.in">DigiCrow</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-lg-square back-to-top"
+      ><i class="fa fa-arrow-up"></i
+    ></a>
+     <!-- JavaScript Libraries -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="lib/wow/wow.min.js"></script>
+     <script src="lib/easing/easing.min.js"></script>
+     <script src="lib/waypoints/waypoints.min.js"></script>
+     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+ 
+     <!-- Template Javascript -->
+     <script src="js/main.js"></script>
   </body>
 </html>
