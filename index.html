@@ -44,12 +44,19 @@
       font-family: 'Open Sans', sans-serif;
     }
     .join{
-      color: #4FC5DD;
+      background-color: #C91414;
+      color: white;
+      padding: 5px;
+      border-radius: 6px;
     }
     /* Center the button within its container */
 .gallery-view-more {
   text-align: center;
   margin-top: 40px; /* Add some spacing above the button */
+}
+
+.cyclothon-register{
+  color: #DC3545;
 }
 
 /* Style the "View More" button */
@@ -119,6 +126,33 @@
   font-size: 16px; /* Uniform font size */
 }
 
+.full-length{
+  height: 770px;
+}
+
+.btn-below{
+  align-items: center;
+}
+
+.upcoming-date{
+  color: white;
+  text-decoration: double;
+}
+.day{
+  background-color: #DC3545;
+  color: white;
+  padding: 6px;
+  border-radius: 8px;
+  font-size: 30px;
+}
+/* .date{
+  color: white;
+  padding: 8px;
+  border-radius: 16px;
+  background-color: #DC3545;
+  font-weight: 1000;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+} */
     </style>
   </head>
 
@@ -228,6 +262,9 @@
                 Unite for fitness, community, and a healthier future—one pedal
                 at a time
               </p>
+                <!-- <h1 class="upcoming-date">
+                   Upcoming Event Date : <span class="date">16 February</span>
+                </h1> -->
               <a href="https://i3foundation.org/payment.php?event=4" target="_blank">
                 <button
                   type="button"
@@ -278,7 +315,7 @@
               </h4>
             <div class="section-title text-start">
               <h3 class="display-4 mb-4 text-wrap text-lg-nowrap gear">
-                Gear up for an unforgettable ride on <span class="date">16th February </span>
+                Gear up for an unforgettable ride on <span class="day">16th February </span>
               </h3>
 
               <h4 class="mb-4">
@@ -348,9 +385,9 @@
                   </div>
                 </div>
                 <div class="col-sm-6">
-                  <div class="video h-100 rounded-2xl">
+                  <div class="video rounded-2xl full-length h-0">
                     <img
-                      src="./img/cardImage4.jpg"
+                      src="./img/cardImage4.png"
                       class="img-fluid rounded w-100 h-100"
                       style="object-fit: cover"
                       alt="Cyclothon Image"
@@ -364,20 +401,20 @@
           <!-- Right Column with Registration Form -->
           <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
             <div class="appointment-form rounded-lg">
-              <h1 class="display-5 mb-4 text-center join">Join the Cyclothon</h1>
+              <h1 class="display-5  text-center join">Join the Cyclothon</h1>
 
 
               <!-- Image below the button -->
               <div class="col-12 mt-4">
                 <img
-                  src="./img/cardImage8.jpg"
+                  src="./img/cardImage8.png"
                   class="img-fluid rounded"
                   alt="Image below register button"
                 />
               </div>
               <div class="col-12 mt-4">
                 <img
-                  src="./img/cardImage11.jpg"
+                  src="./img/cardImage11.png"
                   class="img-fluid rounded"
                   alt="Image below register button"
                 />
@@ -386,7 +423,7 @@
                 <a href="https://i3foundation.org/payment.php?event=4">
                   <button
                     type="button"
-                    class="btn bg-danger text-white py-3 px-5 shadow-lg border-0 rounded-lg"
+                    class="btn bg-danger btn-below text-white py-3 px-5 shadow-lg border-0 rounded-lg"
                   >
                     Register Now
                   </button>
@@ -400,7 +437,7 @@
 
     <!-- Book Appointment End -->
     <div class="container py-5">
-      <h2 class="text-center text-primary mb-5">Upcoming & Previous Events</h2>
+      <h2 class="text-center text-primary mb-5 cyclothon-register">Upcoming & Previous Events</h2>
       <div class="row">
         <!-- Previous Events -->
         <div class="col-md-6 mb-4">
